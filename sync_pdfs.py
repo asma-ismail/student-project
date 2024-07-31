@@ -41,21 +41,21 @@
 # # print(search_res['hits'])
 
 
-import regex as re
+# import regex as re
 
-text = """
+# text = """
 
-85 231741003045 داود سعيد باسم علي 59 57 64 غ55 53 0 راسب 1  0.00
-69 231741003061 عباس علي حيدر كرار 50 50 53 55 50 50 377 ناجح 2  53.86
-93 231841003001 صالح حسن علي الحسن ابا 81 72 56 56 61 74 493 ناجح 3  70.43
-88 231841003002 جاسم شاكر عداي اثير 71 75 91 80 76 89 570 ناجح 4  81.43
-"""
+# 85 231741003045 داود سعيد باسم علي 59 57 64 غ55 53 0 راسب 1  0.00
+# 69 231741003061 عباس علي حيدر كرار 50 50 53 55 50 50 377 ناجح 2  53.86
+# 93 231841003001 صالح حسن علي الحسن ابا 81 72 56 56 61 74 493 ناجح 3  70.43
+# 88 231841003002 جاسم شاكر عداي اثير 71 75 91 80 76 89 570 ناجح 4  81.43
+# """
 
-# Compile the regex pattern
-pattern = re.compile(r"(?<=\d{12} )(.*?)(?=\d)")
+# # Compile the regex pattern
+# pattern = re.compile(r"(?<=\d{12} )(.*?)(?=\d)")
 
-# Find all matches in the text
-matches = pattern.findall(text)
+# # Find all matches in the text
+# matches = pattern.findall(text)
 
-print(matches) 
+# print(matches) 
 
