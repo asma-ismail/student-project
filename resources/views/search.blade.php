@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
     <div class="container">
-        <div class="card mb-4 mt-5" style="padding: 20px; box-shadow: 5px 5px 5px rgb(0,0,0,0.1 )">
+        <div class="card mb-4 mt-5" style="padding: 20px; box-shadow: 5px 5px 5px rgb(0,0,0,0.1 ); min-height:500px">
             <h4 class="  mb-4 mt-5">Search in Documents</h4>
 
             <div class=""> <input type="search" name="search" id="search"
@@ -13,9 +13,9 @@
                     placeholder="&#xf002;  Search Documents...">
                 <button class="btn btn-upload" for="search">Search</button>
             </div>
-            <h4 class="  mb-4 mt-5">Results</h4>
+            <h4 class="  mb-4 " style="margin-top:100px">Results</h4>
 
-            <table class="table" style="min-height: 52%">
+            <table class="table" style="min-height: 52%; margin-bottom:60px">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

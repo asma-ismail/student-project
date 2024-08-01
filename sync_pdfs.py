@@ -1,8 +1,8 @@
-# # from elasticsearch import Elasticsearch 
-# import os
-# import glob
-# import PyPDF2
-# import pandas as pd
+from elasticsearch import Elasticsearch 
+import os
+import glob
+import PyPDF2
+import pandas as pd
 
 # os.chdir('storage/app/uploads')
 # files=glob.glob("*.*")
@@ -29,16 +29,16 @@
 # df = extractPDFfiles(files)
 # df.to_csv("hi.txt")
 
-# # es = Elasticsearch("https://6b11b46e2f1142e3bd6bd25d809031ba.us-central1.gcp.cloud.es.io:443",
-# #   api_key="cHRTZS1wQUJ2bG1BbllJaWh1SnM6U2xKWmpSdXpTX0t6U2QwbXl4M3BHUQ==")
+es = Elasticsearch("https://6b11b46e2f1142e3bd6bd25d809031ba.us-central1.gcp.cloud.es.io:443",
+  api_key="cHRTZS1wQUJ2bG1BbllJaWh1SnM6U2xKWmpSdXpTX0t6U2QwbXl4M3BHUQ==")
 # col_names = df.columns
 # for row_number in range(df.shape[0]):
 #     body = dict([(name, str(df.iloc[row_number][name])) for name in col_names])
 #     print(body)
-# # #     es.index(index = 'my_index2', document = body)
+# #     es.index(index = 'my_index2', document = body)
 
-# # search_res = es.search(index ='my_index2',query={'match_phrase': {"content":"احمد"},} )
-# # print(search_res['hits'])
+search_res = es.search(index ='my_index2',query={'match_phrase': {"content":"احمد"},} )
+print(search_res['hits'])
 
 
 # import regex as re

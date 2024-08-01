@@ -75,8 +75,7 @@ console.clear();
 
     // No 'image/gif' or PDF or webp allowed here, but it's up to your use case.
     // Double checks the input "accept" attribute
-    const isImageFile = (file) =>
-        ["image/jpeg", "image/png", "image/svg+xml"].includes(file.type);
+    const isImageFile = (file) => ["application/pdf"].includes(file.type);
 
     function previewFiles(dataRefs) {
         if (!dataRefs.gallery) return;
@@ -103,12 +102,15 @@ console.clear();
 
         const name = dataRefs.input.getAttribute("data-post-name");
         if (!name) return;
+        var input = document.querySelector('input[type="file"]');
 
         const formData = new FormData();
-        formData.append(name, dataRefs.files);
+        formData.append(name, input.files[0]);
+        formData.append("_token", $("#token").val());
 
         fetch(url, {
             method: "POST",
+
             body: formData,
         })
             .then((response) => response.json())
@@ -116,6 +118,7 @@ console.clear();
                 console.log("posted: ", data);
                 if (data.success === true) {
                     previewFiles(dataRefs);
+                    $(".toast").toast("show");
                 } else {
                     console.log("URL: ", url, "  name: ", name);
                 }
