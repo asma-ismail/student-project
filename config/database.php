@@ -14,7 +14,7 @@ return [
     | the connection which will be utilized unless another connection
     | is explicitly specified when you execute a query / statement.
     |
-    */
+     */
 
     'default' => env('DB_CONNECTION', 'sqlite'),
 
@@ -27,10 +27,34 @@ return [
     | An example configuration is provided for each database system which
     | is supported by Laravel. You're free to add / remove connections.
     |
-    */
+     */
 
     'connections' => [
-
+        'elasticsearch' => [
+            'driver' => 'elasticsearch',
+            'auth_type' => env('ES_AUTH_TYPE', 'api'), //http or cloud
+            'hosts' => explode(',', env('ES_HOSTS', 'http://localhost:9200')),
+            'username' => env('ES_USERNAME', ''),
+            'password' => env('ES_PASSWORD', ''),
+            'cloud_id' => env('ES_CLOUD_ID', ''),
+            'api_id' => env('ES_API_ID', ''),
+            'api_key' => env('ES_API_KEY', ''),
+            'ssl_cert' => env('ES_SSL_CA', ''),
+            'ssl' => [
+                'cert' => env('ES_SSL_CERT', ''),
+                'cert_password' => env('ES_SSL_CERT_PASSWORD', ''),
+                'key' => env('ES_SSL_KEY', ''),
+                'key_password' => env('ES_SSL_KEY_PASSWORD', ''),
+            ],
+            'index_prefix' => env('ES_INDEX_PREFIX', false),
+            'options' => [
+                'allow_id_sort' => env('ES_OPT_ID_SORTABLE', false),
+                'ssl_verification' => env('ES_OPT_VERIFY_SSL', true),
+                'retires' => env('ES_OPT_RETRIES', null),
+                'meta_header' => env('ES_OPT_META_HEADERS', true),
+            ],
+            'error_log_index' => env('ES_ERROR_INDEX', false), //If set will log ES errors to this index, ex: 'laravel_es_errors'
+        ],
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
@@ -123,7 +147,7 @@ return [
     | your application. Using this information, we can determine which of
     | the migrations on disk haven't actually been run on the database.
     |
-    */
+     */
 
     'migrations' => [
         'table' => 'migrations',
@@ -139,7 +163,7 @@ return [
     | provides a richer body of commands than a typical key-value system
     | such as Memcached. You may define your connection settings here.
     |
-    */
+     */
 
     'redis' => [
 
@@ -147,7 +171,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [

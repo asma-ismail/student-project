@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use Elastic\Elasticsearch\ClientBuilder;
+use App\Models\Document;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Response;
@@ -15,28 +14,22 @@ class ElasticController extends Controller
 
     public function __construct()
     {
-        $this->client = ClientBuilder::create()->setHosts([env('ELASTIC_HOST')])->setApiKey(env('ELASTIC_API_KEY'))
-            ->build();
 
     }
     public function upload(Request $request)
     {
         $file_name = $request->file('file')->getClientOriginalName();
+
         Storage::disk('local')->put($file_name, $request->file('file')->get());
         $path = Storage::disk('local')->path($file_name);
 
         $b64Doc = base64_encode(file_get_contents($path));
-        $params = [
-            'index' => 'pdf_index',
-            'type' => 'pdfs',
-            'pipeline' => 'PDF processor',
-            'body' => [
-                'file' => $b64Doc,
-                'filename' => $file_name,
-                'date' => Carbon::now(),
-            ],
-        ];
-        $response = $this->client->index($params);
+
+        $doc = new Document;
+        $doc->file = $b64Doc;
+        $doc->filename = $file_name;
+        $doc->save();
+
         return response()->json(["success" => true], 200);
 
     }
@@ -44,16 +37,7 @@ class ElasticController extends Controller
     public function index()
     {
 
-        $params = [
-            'index' => 'pdf_index',
-            'body' => [
-                'query' => [
-                    'match_all' => new \stdClass(),
-                ],
-            ]];
-
-        $response = $this->client->search($params);
-        $documents = $response['hits']['hits'];
+        $documents = Document::paginate(10);
         return view('uploader', compact('documents'));
     }
 
@@ -65,5 +49,12 @@ class ElasticController extends Controller
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'inline; filename="' . $path . '"',
         ]);
+    }
+
+    public function searchStudentName()
+    {
+        $documents = Document::term(request()->search)->fields(['attachment.content'])->highlight()->search();
+        return view('search', compact('documents'));
+
     }
 }

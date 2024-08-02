@@ -22,6 +22,11 @@
             font-weight: 800;
         }
 
+        em {
+            background-color: yellow;
+            font-weight: 600
+        }
+
         .navbar {
             padding: 20px
         }
@@ -75,6 +80,9 @@
 
         body {
             margin: 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
 
@@ -173,7 +181,7 @@
                 <li class="nav-item passive-l">
                     <a class="nav-link" href="{{ route('uploader') }}">Upload</a>
                 </li>
-                <div class="animation active-link {{ request()->route()->getName() == 'search' ? 'search' : '' }}"
+                <div class="animation active-link {{ request()->route()->getName() == 'search' || request()->route()->getName() == 'get-results' ? 'search' : '' }}"
                     style="">
                 </div>
 
@@ -183,7 +191,10 @@
         </div>
 
     </nav>
-    @yield('content')
+    <main style="  flex: 1;">
+        @yield('content')
+    </main>
+
     <footer class="bg-body-tertiary text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">

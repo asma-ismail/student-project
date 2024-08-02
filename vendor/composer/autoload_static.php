@@ -104,6 +104,7 @@ class ComposerStaticInit89a0a8775fe7ccc2d0e14648ce956c09
             'Psr\\Clock\\' => 10,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
+            'PDPhilip\\Elasticsearch\\' => 23,
         ),
         'N' => 
         array (
@@ -372,6 +373,10 @@ class ComposerStaticInit89a0a8775fe7ccc2d0e14648ce956c09
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
+        'PDPhilip\\Elasticsearch\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pdphilip/elasticsearch/src',
+        ),
         'NunoMaduro\\Collision\\' => 
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
@@ -537,6 +542,8 @@ class ComposerStaticInit89a0a8775fe7ccc2d0e14648ce956c09
 
     public static $classMap = array (
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\ElasticController' => __DIR__ . '/../..' . '/app/Http/Controllers/ElasticController.php',
+        'App\\Http\\Controllers\\PDFController' => __DIR__ . '/../..' . '/app/Http/Controllers/PDFController.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -3725,6 +3732,38 @@ class ComposerStaticInit89a0a8775fe7ccc2d0e14648ce956c09
         'NunoMaduro\\Collision\\SolutionsRepositories\\NullSolutionsRepository' => __DIR__ . '/..' . '/nunomaduro/collision/src/SolutionsRepositories/NullSolutionsRepository.php',
         'NunoMaduro\\Collision\\Writer' => __DIR__ . '/..' . '/nunomaduro/collision/src/Writer.php',
         'Override' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/Override.php',
+        'PDPhilip\\Elasticsearch\\Connection' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Connection.php',
+        'PDPhilip\\Elasticsearch\\DSL\\Bridge' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/DSL/Bridge.php',
+        'PDPhilip\\Elasticsearch\\DSL\\IndexInterpreter' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/DSL/IndexInterpreter.php',
+        'PDPhilip\\Elasticsearch\\DSL\\ParameterBuilder' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/DSL/ParameterBuilder.php',
+        'PDPhilip\\Elasticsearch\\DSL\\QueryBuilder' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/DSL/QueryBuilder.php',
+        'PDPhilip\\Elasticsearch\\DSL\\Results' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/DSL/Results.php',
+        'PDPhilip\\Elasticsearch\\DSL\\exceptions\\ParameterException' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/DSL/exceptions/ParameterException.php',
+        'PDPhilip\\Elasticsearch\\DSL\\exceptions\\QueryException' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/DSL/exceptions/QueryException.php',
+        'PDPhilip\\Elasticsearch\\ElasticServiceProvider' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/ElasticServiceProvider.php',
+        'PDPhilip\\Elasticsearch\\Eloquent\\Builder' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Eloquent/Builder.php',
+        'PDPhilip\\Elasticsearch\\Eloquent\\Docs\\ModelDocs' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Eloquent/Docs/ModelDocs.php',
+        'PDPhilip\\Elasticsearch\\Eloquent\\HybridRelations' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Eloquent/HybridRelations.php',
+        'PDPhilip\\Elasticsearch\\Eloquent\\Model' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Eloquent/Model.php',
+        'PDPhilip\\Elasticsearch\\Eloquent\\SoftDeletes' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Eloquent/SoftDeletes.php',
+        'PDPhilip\\Elasticsearch\\Helpers\\QueriesRelationships' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Helpers/QueriesRelationships.php',
+        'PDPhilip\\Elasticsearch\\Query\\Builder' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Query/Builder.php',
+        'PDPhilip\\Elasticsearch\\Query\\Grammar' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Query/Grammar.php',
+        'PDPhilip\\Elasticsearch\\Query\\Processor' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Query/Processor.php',
+        'PDPhilip\\Elasticsearch\\Relations\\BelongsTo' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Relations/BelongsTo.php',
+        'PDPhilip\\Elasticsearch\\Relations\\BelongsToMany' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Relations/BelongsToMany.php',
+        'PDPhilip\\Elasticsearch\\Relations\\HasMany' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Relations/HasMany.php',
+        'PDPhilip\\Elasticsearch\\Relations\\HasOne' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Relations/HasOne.php',
+        'PDPhilip\\Elasticsearch\\Relations\\MorphMany' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Relations/MorphMany.php',
+        'PDPhilip\\Elasticsearch\\Relations\\MorphOne' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Relations/MorphOne.php',
+        'PDPhilip\\Elasticsearch\\Relations\\MorphTo' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Relations/MorphTo.php',
+        'PDPhilip\\Elasticsearch\\Schema\\AnalyzerBlueprint' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Schema/AnalyzerBlueprint.php',
+        'PDPhilip\\Elasticsearch\\Schema\\Builder' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Schema/Builder.php',
+        'PDPhilip\\Elasticsearch\\Schema\\Definitions\\AnalyzerPropertyDefinition' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Schema/Definitions/AnalyzerPropertyDefinition.php',
+        'PDPhilip\\Elasticsearch\\Schema\\Definitions\\FieldDefinition' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Schema/Definitions/FieldDefinition.php',
+        'PDPhilip\\Elasticsearch\\Schema\\Grammar' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Schema/Grammar.php',
+        'PDPhilip\\Elasticsearch\\Schema\\IndexBlueprint' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Schema/IndexBlueprint.php',
+        'PDPhilip\\Elasticsearch\\Schema\\Schema' => __DIR__ . '/..' . '/pdphilip/elasticsearch/src/Schema/Schema.php',
         'PHPUnit\\Event\\Application\\Finished' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/Finished.php',
         'PHPUnit\\Event\\Application\\FinishedSubscriber' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/FinishedSubscriber.php',
         'PHPUnit\\Event\\Application\\Started' => __DIR__ . '/..' . '/phpunit/phpunit/src/Event/Events/Application/Started.php',

@@ -45,12 +45,15 @@
                                 @foreach ($documents as $document)
                                     <tr>
                                         <th scope="row"></th>
-                                        <td><a href="{{ route('pdf.show', ['path' => $document['_source']['filename']]) }}"
+                                        <td><a href="{{ route('pdf.show', ['path' => $document->filename]) }}"
                                                 target="_blank">
                                                 <i class="fa fa-file-pdf-o" style="font-size:45px"></i></a>
                                         </td>
-                                        <td>{{ $document['_source']['filename'] }}</td>
-                                        <td>{{ $document['_source']['date'] }}</td>
+                                        <td>{{ $document->filename }}</td>
+                                        <td>{{ Carbon\Carbon::parse($document->date)->format('d-m-Y h:i:s') }}
+                                        </td>
+
+
                                     </tr>
                                 @endforeach
 
@@ -60,7 +63,10 @@
                 </div>
             </div>
         </div>
+        {{ $documents->appends(request()->query())->links() }}
+
     </div>
+
     <div class="toast" data-autohide="true" data-delay="3000"
         style="    position: fixed;
     z-index: 999999999;
@@ -74,5 +80,7 @@
         <div class="toast-body">
             Your PDF file has been uploaded Successfully.
         </div>
+
+
     </div>
 @endsection

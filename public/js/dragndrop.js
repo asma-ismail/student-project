@@ -11,7 +11,11 @@ console.clear();
 
     // Four objects of interest: drop zones, input elements, gallery elements, and the files.
     // dataRefs = {files: [image files], input: element ref, gallery: element ref}
-
+    // function getCookie(name) {
+    //     const value = `; ${document.cookie}`;
+    //     const parts = value.split(`; ${name}=`);
+    //     if (parts.length === 2) return parts.pop().split(";").shift();
+    // }
     const preventDefaults = (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -107,9 +111,15 @@ console.clear();
         const formData = new FormData();
         formData.append(name, input.files[0]);
         formData.append("_token", $("#token").val());
+        // const csrfToken = getCookie("XSRF-TOKEN=");
 
         fetch(url, {
             method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": $("#token").val(),
+                // "X-XSRF-TOKEN": decodeURIComponent(csrfToken),
+            },
+            credentials: "same-origin",
 
             body: formData,
         })

@@ -3093,6 +3093,77 @@
             "install-path": "../nunomaduro/termwind"
         },
         {
+            "name": "pdphilip/elasticsearch",
+            "version": "v4.0.3",
+            "version_normalized": "4.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pdphilip/laravel-elasticsearch.git",
+                "reference": "ff63bd80db6da81b74e506c41c652cce3c4ff9a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pdphilip/laravel-elasticsearch/zipball/ff63bd80db6da81b74e506c41c652cce3c4ff9a9",
+                "reference": "ff63bd80db6da81b74e506c41c652cce3c4ff9a9",
+                "shasum": ""
+            },
+            "require": {
+                "elasticsearch/elasticsearch": "^8.12",
+                "illuminate/container": "^10.0|^11.0",
+                "illuminate/database": "^10.0|^11.0",
+                "illuminate/events": "^10.0|^11.0",
+                "illuminate/support": "^10.0|^11.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "12.0.x-dev",
+                "mockery/mockery": "^1.4.4",
+                "orchestra/testbench": "^8.0",
+                "phpunit/phpunit": "^10.3"
+            },
+            "time": "2024-07-31T13:38:42+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "PDPhilip\\Elasticsearch\\ElasticServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "PDPhilip\\Elasticsearch\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Philip",
+                    "email": "pd.philip@gmail.com",
+                    "homepage": "https://github.com/pdphilip"
+                }
+            ],
+            "description": "An Elasticsearch implementation of Laravel's Eloquent ORM",
+            "homepage": "https://github.com/pdphilip/laravel-elasticsearch",
+            "keywords": [
+                "database",
+                "elastic",
+                "elasticsearch",
+                "eloquent",
+                "laravel",
+                "model"
+            ],
+            "support": {
+                "issues": "https://github.com/pdphilip/laravel-elasticsearch/issues",
+                "source": "https://github.com/pdphilip/laravel-elasticsearch/tree/v4.0.3"
+            },
+            "install-path": "../pdphilip/elasticsearch"
+        },
+        {
             "name": "phar-io/manifest",
             "version": "2.0.4",
             "version_normalized": "2.0.4.0",
