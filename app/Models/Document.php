@@ -10,6 +10,6 @@ use PDPhilip\Elasticsearch\Eloquent\Model as ElasticModel;
 class Document extends ElasticModel
 {
     protected $connection = 'elasticsearch';
-    protected $index = 'pdf_index';
+    protected $index = 'elastic-demo1';
 
 }

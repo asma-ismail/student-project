@@ -18,6 +18,7 @@ class ElasticController extends Controller
     }
     public function upload(Request $request)
     {
+
         $file_name = $request->file('file')->getClientOriginalName();
 
         Storage::disk('local')->put($file_name, $request->file('file')->get());
@@ -37,7 +38,7 @@ class ElasticController extends Controller
     public function index()
     {
 
-        $documents = Document::paginate(10);
+        $documents = Document::orderBy('created_at', 'desc')->paginate(10);
         return view('uploader', compact('documents'));
     }
 
@@ -53,7 +54,8 @@ class ElasticController extends Controller
 
     public function searchStudentName()
     {
-        $documents = Document::term(request()->search)->fields(['attachment.content'])->highlight()->search();
+
+        $documents = Document::fuzzyTerm(request()->search)->fields(['attachment.content'])->highlight()->search();
         return view('search', compact('documents'));
 
     }

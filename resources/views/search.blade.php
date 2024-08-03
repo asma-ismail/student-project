@@ -27,7 +27,7 @@
 
                         <tr>
 
-                            <th scope="col">#</th>
+                            <th scope="col"></th>
                             <th scope="col">File</th>
                             <th scope="col" style="width: 30%">Matched Content</th>
                             <th scope="col">Upload Date</th>
@@ -44,11 +44,11 @@
     top: 77px;
     position: relative;">
                                     <div class="text-center">
-                                        <p>1</p>
+                                        <p></p>
                                     </div>
                                 </th>
                                 <td class="text-center" style="width:300px"> <a
-                                        href="{{ route('pdf.show', ['path' => $document->filename]) }}">
+                                        href="{{ route('pdf.show', ['path' => $document->filename]) }} " target="_blank">
                                         <i class="fa
                                         fa-file-pdf-o"
                                             style="font-size:120px"></i><br><br>{{ $document->filename }}</a>
@@ -69,7 +69,7 @@
                                         @endisset
                                     </p>
                                 </td>
-                                <td>{{ Carbon\Carbon::parse($document->date)->format('d-m-Y h:i:s') }}</td>
+                                <td>{{ Carbon\Carbon::parse($document->created_at)->format('d-m-Y h:i:s') }}</td>
                             </tr>
                         @endforeach
 

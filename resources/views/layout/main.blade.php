@@ -164,7 +164,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white" style="box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1)">
 
         <a class="navbar-brand" href="#" style="font-weight: 700"><i class="fa fa-file-pdf-o"
-                style="font-size:40px"></i> PDF Elastic Search. </a>
+                style="font-size:40px"></i> PDF Elastic Search </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -198,8 +198,8 @@
     <footer class="bg-body-tertiary text-center text-lg-start">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2020 Copyright:
-            <a class="text-body" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            Developed by
+            <a class="text-body" href="https://github.com/asma-ismail">Asma Ismail</a>
         </div>
         <!-- Copyright -->
     </footer>

@@ -35,7 +35,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col"></th>
                                     <th scope="col">File</th>
                                     <th scope="col">File Name</th>
                                     <th scope="col">Upload Date</th>
@@ -50,7 +50,7 @@
                                                 <i class="fa fa-file-pdf-o" style="font-size:45px"></i></a>
                                         </td>
                                         <td>{{ $document->filename }}</td>
-                                        <td>{{ Carbon\Carbon::parse($document->date)->format('d-m-Y h:i:s') }}
+                                        <td>{{ Carbon\Carbon::parse($document->created_at)->format('d-m-Y h:i:s') }}
                                         </td>
 
 

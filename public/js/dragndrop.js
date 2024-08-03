@@ -82,18 +82,18 @@ console.clear();
     const isImageFile = (file) => ["application/pdf"].includes(file.type);
 
     function previewFiles(dataRefs) {
-        if (!dataRefs.gallery) return;
-        for (const file of dataRefs.files) {
-            let reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onloadend = function () {
-                let img = document.createElement("img");
-                img.className = "upload_img mt-2";
-                img.setAttribute("alt", file.name);
-                img.src = reader.result;
-                dataRefs.gallery.appendChild(img);
-            };
-        }
+        // if (!dataRefs.gallery) return;
+        // for (const file of dataRefs.files) {
+        //     let reader = new FileReader();
+        //     reader.readAsDataURL(file);
+        //     reader.onloadend = function () {
+        //         let img = document.createElement("img");
+        //         img.className = "upload_img mt-2";
+        //         img.setAttribute("alt", file.name);
+        //         img.src = reader.result;
+        //         dataRefs.gallery.appendChild(img);
+        //     };
+        // }
     }
 
     // Based on: https://flaviocopes.com/how-to-upload-files-fetch/
@@ -111,13 +111,11 @@ console.clear();
         const formData = new FormData();
         formData.append(name, input.files[0]);
         formData.append("_token", $("#token").val());
-        // const csrfToken = getCookie("XSRF-TOKEN=");
 
         fetch(url, {
             method: "POST",
             headers: {
                 "X-CSRF-TOKEN": $("#token").val(),
-                // "X-XSRF-TOKEN": decodeURIComponent(csrfToken),
             },
             credentials: "same-origin",
 
@@ -127,8 +125,9 @@ console.clear();
             .then((data) => {
                 console.log("posted: ", data);
                 if (data.success === true) {
-                    previewFiles(dataRefs);
+                    setTimeout(function () {}, 3000);
                     $(".toast").toast("show");
+                    location.reload();
                 } else {
                     console.log("URL: ", url, "  name: ", name);
                 }
