@@ -34,7 +34,7 @@ console.clear();
 
     const handleDrop = (event) => {
         const dataRefs = getInputAndGalleryRefs(event.target);
-        dataRefs.files = event.dataTransfer.files;
+        dataRefs.files = event.dataTransfer.files[0];
         handleFiles(dataRefs);
     };
 
@@ -107,9 +107,12 @@ console.clear();
         const name = dataRefs.input.getAttribute("data-post-name");
         if (!name) return;
         var input = document.querySelector('input[type="file"]');
+        console.log(input.files[0]);
+        console.log(dataRefs.files);
 
         const formData = new FormData();
-        formData.append(name, input.files[0]);
+        if (input.files[0]) formData.append(name, input.files[0]);
+        else formData.append(name, dataRefs.files);
         formData.append("_token", $("#token").val());
 
         fetch(url, {
@@ -139,18 +142,15 @@ console.clear();
 
     // Handle both selected and dropped files
     const handleFiles = (dataRefs) => {
-        let files = [...dataRefs.files];
-
         // Remove unaccepted file types
-        files = files.filter((item) => {
-            if (!isImageFile(item)) {
-                console.log("Not an image, ", item.type);
-            }
-            return isImageFile(item) ? item : null;
-        });
+        // files = files.filter((item) => {
+        //     if (!isImageFile(item)) {
+        //         console.log("Not an image, ", item.type);
+        //     }
+        //     return isImageFile(item) ? item : null;
+        // });
 
-        if (!files.length) return;
-        dataRefs.files = files;
+        // if (!files.length) return;
 
         previewFiles(dataRefs);
         imageUpload(dataRefs);

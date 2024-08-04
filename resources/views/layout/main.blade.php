@@ -138,21 +138,21 @@
             right: 265px;
         }
 
-        nav li:nth-child(1) {
+        .navbar li:nth-child(1) {
             width: 100px;
         }
 
-        nav .start-home,
+        .navbar .start-home,
         li:nth-child(1):hover~.animation {
             width: 60px;
             right: 265px;
         }
 
-        nav li:nth-child(2) {
+        .navbar li:nth-child(2) {
             width: 110px;
         }
 
-        nav li:nth-child(2):hover~.animation {
+        .navbar li:nth-child(2):hover~.animation {
             width: 60px;
             right: 63px;
         }
