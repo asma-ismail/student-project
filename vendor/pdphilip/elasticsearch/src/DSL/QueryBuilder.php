@@ -50,7 +50,8 @@ trait QueryBuilder
             $params['body']['highlight'] = $searchOptions['highlight'];
             unset($searchOptions['highlight']);
         }
-
+        $params['body']['highlight'] += ["order" => "score", "number_of_fragments" => 10];
+        // dd($params['body']['highlight']);
         if ($searchOptions) {
             foreach ($searchOptions as $searchOption => $searchOptionValue) {
                 $queryString[$searchOption] = $searchOptionValue;

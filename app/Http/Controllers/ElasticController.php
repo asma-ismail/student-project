@@ -54,8 +54,19 @@ class ElasticController extends Controller
 
     public function searchStudentName()
     {
+        $terms = explode(' ', request()->search);
+        // dd($terms);
+        $documents = Document::fuzzyTerm(request()->search);
+        $ctr = 0;
+        foreach ($terms as $term) {
+            $ctr++;
+            if ($ctr == 1) {
+                continue;
+            }
+            $documents->orFuzzyTerm($term);
 
-        $documents = Document::fuzzyTerm(request()->search)->fields(['attachment.content'])->highlight()->search();
+        }
+        $documents = $documents->fields(['attachment.content'])->highlight()->search();
         return view('search', compact('documents'));
 
     }
